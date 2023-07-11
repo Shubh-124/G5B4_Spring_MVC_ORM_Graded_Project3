@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>View Ticket</title>
+	<style>
+		body {
+			font-family: 'Times New Roman', Times, serif, sans-serif;
+			background-color: #f8f8f8;
+			margin: 0;
+			padding: 0;
+		}
+
+		.header {
+			display: flex;
+			align-items: center;
+			background-color: blue;
+			padding: 10px 20px;
+		}
+
+		.ticket {
+			margin: 0;
+			color: white;
+			margin-right: 30px;
+			text-decoration: none;
+		}
+
+		.ticket-info {
+			background-color: #fff;
+			padding: 20px;
+			margin: 20px;
+			border-radius: 5px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		}
+
+		.ticket-info strong {
+			display: inline-block;
+			width: 150px;
+		}
+
+		.back-link {
+			color: white;
+			text-decoration: none;
+		}
+
+		.footer {
+			position: fixed;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			background-color: lightgray;
+			color: #343a40;
+			text-align: center;
+			padding: 20px 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="header">
+		<h3 class="ticket"><a href="/" class="back-link">Ticket Tracker Application</a></h3>
+		<h6 class="ticket">Tickets</h6>
+		<a href="/tickets/new" class="button1 ticket">New Ticket</a>
+	</div>
+	<div class="ticket-info">
+		<h1>View Ticket</h1>
+		<div>
+			<strong>Ticket Title:</strong>
+			<span th:text="${ticket.title}"></span>
+		</div>
+		<div>
+			<strong>Ticket Description:</strong>
+			<span th:text="${ticket.description}"></span>
+		</div>
+		<div>
+			<strong>Ticket Created On:</strong>
+			<span th:text="${ticket.createdOn}"></span>
+		</div>
+	</div>
+
+	<div class="footer">
+		Copyright &copy; 2023 GreatLearning All right reserved
+	</div>
+</body>
+
+</html>
