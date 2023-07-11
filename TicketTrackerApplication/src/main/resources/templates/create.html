@@ -4,6 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Create Ticket</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 	<style>
 		body {
 			font-family: 'Times New Roman', Times, serif, sans-serif;
@@ -11,37 +12,15 @@
 			padding: 0;
 		}
 
-		.header {
-			display: flex;
-			align-items: center;
-			background-color: #007bff;
-			padding: 10px 20px;
-		}
-
-		.ticket {
-			margin: 0;
-			color: white;
-			margin-right: 30px;
-			text-decoration: none;
-		}
-
-		.back-link {
-			color: white;
-			text-decoration: none;
-		}
-
 		.card {
-			background-color: #fff;
-			border-radius: 4px;
 			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-			padding: 20px;
-			max-width: 400px;
-			margin: 30px auto;
+			max-width: 500px;
+			margin: 10px auto;
 		}
 
-		h1 {
-			margin-top: 0;
-			margin-bottom: 20px;
+		.card-header {
+			background-color: #f8f8f8;
+			text-align: center;
 		}
 
 		form {
@@ -100,7 +79,6 @@
 		}
 
 		.footer {
-			position: fixed;
 			left: 0;
 			bottom: 0;
 			width: 100%;
@@ -109,31 +87,59 @@
 			text-align: center;
 			padding: 20px 0;
 		}
+		.fontcolor{
+			color:white
+		}
 	</style>
 </head>
 
 <body>
-	<div class="header">
-		<h3 class="ticket"><a href="/" class="back-link">Ticket Tracker Application</a></h3>
-		<h6 class="ticket">Tickets</h6>
-		<a href="/tickets/new" class="button1 ticket">New Ticket</a>
-	</div>
+	<nav class="navbar navbar-expand-lg navbar-primary bg-primary">
+		<a class="navbar-brand fontcolor" href="/">Ticket Tracker Application</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a class="nav-link fontcolor" href="#">Tickets</a>
+				</li>
+				<li class="nav-item active">
+					<a href="/tickets/new" class="nav-link fontcolor">New Ticket</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
 	<div class="card">
-		<h1 style="background-color: #f8f8f8; text-align: center;">Create Ticket</h1>
-		<form th:action="@{/tickets}" th:object="${ticket}" method="post">
-			<label for="title">Title</label>
-			<input type="text" id="title" th:field="*{title}" required>
-			<label for="description">Short Description</label>
-			<textarea id="description" th:field="*{description}" required></textarea>
-			<label for="createdOn">Created On</label>
-			<input type="date" id="createdOn" th:field="*{createdOn}" required>
-			<br/>
-			<button type="submit">Submit</button>
-		</form>
+		<div class="card-header">
+			<h3>Create Ticket</h3>
+		</div>
+		<div class="card-body">
+			<form th:action="@{/tickets}" th:object="${ticket}" method="post">
+				<div class="form-group">
+					<label for="title">Title</label>
+					<input type="text" id="title" th:field="*{title}" class="form-control" required>
+				</div>
+				<div class="form-group">
+					<label for="description">Short Description</label>
+					<textarea id="description" th:field="*{description}" class="form-control" required></textarea>
+				</div>
+				<div class="form-group">
+					<label for="createdOn">Created On</label>
+					<input type="date" id="createdOn" th:field="*{createdOn}" class="form-control" required>
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
 	</div>
 	<div class="footer">
-		Copyright &copy; 2023 GreatLearning All right reserved
+		<p>Copyright © 2023 GreatLearning All right reserved</p>
 	</div>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>
