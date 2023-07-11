@@ -11,52 +11,56 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="tickets")
+@Table(name = "tickets")
 @Data
 @NoArgsConstructor
 public class Ticket {
-	
-	 @Id
-	    @GeneratedValue(strategy = GenerationType.AUTO)
-	    private Long id;
 
-	    private String title;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 
-	    private String description;
+	private String title;
 
-//	    @Temporal(TemporalType.TIMESTAMP)
-	    private LocalDate createdOn;
+	private String description;
 
-		public LocalDate getCreatedOn() {
-			return createdOn;
-		}
+	private LocalDate createdOn = LocalDate.now();
 
-		public void setCreatedOn(LocalDate createdOn) {
-			this.createdOn = createdOn;
-		}
+	private String content;
 
-		public Long getId() {
-			return id;
-		}
+	public Long getId() {
+		return id;
+	}
 
-		public void setId(Long id) {
-			this.id = id;
-		}
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-		public String getTitle() {
-			return title;
-		}
+	public String getTitle() {
+		return title;
+	}
 
-		public void setTitle(String title) {
-			this.title = title;
-		}
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-		public String getDescription() {
-			return description;
-		}
+	public String getDescription() {
+		return description;
+	}
 
-		public void setDescription(String description) {
-			this.description = description;
-		}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
+	public LocalDate getCreatedOn() {
+		return createdOn;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
 }

@@ -6,11 +6,15 @@
 	<title>Ticket Tracker</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 	<style>
-		body{
+		body {
 			font-family: 'Times New Roman', Times, serif;
 		}
-		.fontcolor{
-			color:white
+
+		.fontcolor {
+			color: white
+		}
+		.footer{
+			background-color: lightgrey;
 		}
 	</style>
 </head>
@@ -65,8 +69,8 @@
 					<td th:text="${ticket.createdOn}"></td>
 					<td>
 						<a th:href="@{/tickets/{id}/edit(id=${ticket.id})}" class="btn btn-primary btn-sm">Edit</a>
-						<a th:href="@{/tickets/{id}/delete(id=${ticket.id})}" onclick="return confirm('Are you sure to delete?')"
-							class="btn btn-danger btn-sm">Delete</a>
+						<a th:href="@{/tickets/{id}/delete(id=${ticket.id})}"
+							onclick="return confirm('Are you sure to delete?')" class="btn btn-danger btn-sm">Delete</a>
 						<a th:href="@{/tickets/{id}(id=${ticket.id})}" class="btn btn-info btn-sm">View</a>
 					</td>
 				</tr>
@@ -74,11 +78,9 @@
 		</table>
 	</div>
 
-	<footer class="footer fixed-bottom bg-light text-center py-2">
-		<p>Copyright © 2023 GreatLearning. All rights reserved.</p>
+	<footer class="footer text-center py-2">
+		<p>Copyright © 2023 GreatLearning. All right reserved.</p>
 	</footer>
-
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>

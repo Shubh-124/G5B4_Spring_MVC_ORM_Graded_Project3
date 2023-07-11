@@ -12,16 +12,16 @@ import com.glearning.tickettracker.service.TicketService;
 @Controller
 public class HomeController {
 
-    private final TicketService ticketService;
+	private final TicketService ticketService;
 
-    public HomeController(TicketService ticketService) {
-        this.ticketService = ticketService;
-    }
+	public HomeController(TicketService ticketService) {
+		this.ticketService = ticketService;
+	}
 
-    @GetMapping("/")
-    public String home(Model model) {
-        List<Ticket> tickets = ticketService.getAllTickets();
-        model.addAttribute("tickets", tickets);
-        return "home";
-    }
-}	
+	@GetMapping("/")
+	public String home(Model model) {
+		List<Ticket> tickets = ticketService.getAllTickets();
+		model.addAttribute("tickets", tickets);
+		return "home";
+	}
+}

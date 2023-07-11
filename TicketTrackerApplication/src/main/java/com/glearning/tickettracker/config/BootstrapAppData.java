@@ -13,17 +13,19 @@ import java.time.LocalDate;
 @Configuration
 public class BootstrapAppData {
 
-    @Autowired
-    private TicketRepository ticketRepository;
+	@Autowired
+	private TicketRepository ticketRepository;
 
-    @EventListener(ApplicationReadyEvent.class)
-    public void onReady(ApplicationReadyEvent event) {
+	@EventListener(ApplicationReadyEvent.class)
+	public void onReady(ApplicationReadyEvent event) {
 
-        Ticket java = new Ticket();
-        java.setTitle("Default Ticket");
-        java.setDescription("This ticket is not booked successfully");
-        java.setCreatedOn(LocalDate.of(2020, 9, 9));
+		Ticket java = new Ticket();
+		java.setTitle("Default Ticket");
+		java.setDescription("This ticket is booked successfully");
+		java.setCreatedOn(LocalDate.of(2020, 9, 9));
+		java.setContent(
+				"Took your ticket after successful booking. Don't destory your ticket unless until you travelled");
 
-        this.ticketRepository.save(java);
-    }
+		this.ticketRepository.save(java);
+	}
 }
